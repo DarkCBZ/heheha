@@ -78,7 +78,7 @@ function main() {
     }
   }
 
-  if (window.location.href.startsWith("https://www42.myfantasyleague.com/2025/standings")) {
+  if (window.location.href.startsWith("https://www42.myfantasyleague.com/2025/standings") || window.location.href.startsWith("https://www42.myfantasyleague.com/2025/home")) {
     // Find the row containing your team name
     const standingRow = Array.from(document.querySelectorAll('tr.oddtablerow, tr.eventablerow'))
       .find(row => row.textContent.includes("VanGinkelTouchedMyJinkel"));

